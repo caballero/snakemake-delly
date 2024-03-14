@@ -1,0 +1,5 @@
+samples:
+  - sampleID1
+  - sampleID2
+fastq_dir: /path/to/fastq/dir
+genome: ref/genome.fa
