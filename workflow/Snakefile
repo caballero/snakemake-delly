@@ -5,8 +5,8 @@
 import os
 import yaml
 
-wildcard_constraints:
-    sample=r".+\d+"
+#wildcard_constraints:
+#    sample=r".+\d+"
 
 # some subroutines needed
 def dump_config_to_yaml(config, output_dir):
@@ -33,7 +33,7 @@ onstart:
 # main workflow
 rule all:
     input:
-    expand("03_vars/{sample}_delly.bcf", sample=config["sample"])
+        expand("03_vars/{sample}_delly.bcf", sample=config["samples"])
 
 rule fastp:
     input:
@@ -205,7 +205,7 @@ rule delly_call:
     output:
         bcf = "03_vars/{sample}_delly.bcf"
     log:
-        "logs/delly_call/{sample.log}"
+        "logs/delly_call/{sample}.log"
     conda:
         "envs/environment.yaml"
     shell:
