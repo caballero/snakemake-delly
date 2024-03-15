@@ -201,6 +201,7 @@ rule samtools_index_rmdup:
 rule delly_call:
     input:
         bam = "02_mapped/{sample}_rmdup.bam",
+        bai = "02_mapped/{sample}_rmdup.bam.bai",
         ref = config["genome"]
     output:
         bcf = "03_vars/{sample}_delly.bcf"
