@@ -5,8 +5,8 @@
 import os
 import yaml
 
-#wildcard_constraints:
-#    sample=r".+\d+"
+wildcard_constraints:
+    sample=r".+\d+"
 
 # some subroutines needed
 def dump_config_to_yaml(config, output_dir):
