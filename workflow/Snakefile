@@ -91,7 +91,7 @@ rule bwa_mem:
             {input.fq2} \
         | samtools view \
             -b \
-            --threads 2 \ref = config["genome"],
+            --threads 2 \
             -o {output.bam} \
             -
         """
