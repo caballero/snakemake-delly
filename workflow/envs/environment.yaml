@@ -1,3 +1,4 @@
+name: sv-delly
 channels:
   - bioconda
   - conda-forge
