@@ -33,6 +33,7 @@ onstart:
 # main workflow
 rule all:
     input:
+    expand("03_vars/{sample}_delly.bcf", sample=config["sample"])
 
 rule fastp:
     input:
@@ -202,15 +203,17 @@ rule delly_call:
         bam = "02_mapped/{sample}_rmdup.bam",
         ref = config["genome"]
     output:
-        vcf = "03_vars/{sample}_delly.bcf"
+        bcf = "03_vars/{sample}_delly.bcf"
     log:
         "logs/delly_call/{sample.log}"
+    conda:
+        "envs/environment.yaml"
     shell:
         """
         delly \
             call \
             -g {input.ref} \
-            -o {output.vcf} \
+            -o {output.bcf} \
             {input.bam}
         """
 
