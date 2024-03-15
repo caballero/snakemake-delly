@@ -1,0 +1,27 @@
+digraph snakemake_dag {
+    graph[bgcolor=white, margin=0];
+    node[shape=box, style=rounded, fontname=sans,                 fontsize=10, penwidth=2];
+    edge[penwidth=2, color=grey];
+	0[label = "results", color = "0.07 0.6 0.85", style="rounded"];
+	1[label = "delly_call", color = "0.22 0.6 0.85", style="rounded"];
+	2[label = "samtools_markdup", color = "0.44 0.6 0.85", style="rounded"];
+	3[label = "samtools_sort", color = "0.15 0.6 0.85", style="rounded"];
+	4[label = "samtools_fixmate", color = "0.59 0.6 0.85", style="rounded"];
+	5[label = "samtools_rsort", color = "0.37 0.6 0.85", style="rounded"];
+	6[label = "bwa_mem", color = "0.52 0.6 0.85", style="rounded"];
+	7[label = "fastp", color = "0.00 0.6 0.85", style="rounded"];
+	8[label = "samtools_index_rmdup", color = "0.30 0.6 0.85", style="rounded"];
+	9[label = "INPUT:\nsampleID\nfastq\nref_genome", color = "0.00 0.6 0.85", style="rounded"];
+	10[label = "OUTPUT:\nSV bcf", color = "0.00 0.6 0.85", style="rounded"];
+	9 -> 7
+	0 -> 10
+	1 -> 0
+	2 -> 1
+	8 -> 1
+	3 -> 2
+	4 -> 3
+	5 -> 4
+	6 -> 5
+	7 -> 6
+	2 -> 8
+}            

@@ -21,5 +21,10 @@ genome: ref/genome.fa
 
 `snakemake --configfile <your-config.yaml> -d <output_dir>`
 
+## Workflow
+
+![workflow](img/wf.svg)
+
+
 Juan Caballero 
 (C) 2024
